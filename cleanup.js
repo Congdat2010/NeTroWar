@@ -14,6 +14,9 @@ try {
                 }
             });
         });
+
+    rmSync("./backup/", { recursive: true, force: true });
+
 } catch (e) {
     console.error(e);
 }

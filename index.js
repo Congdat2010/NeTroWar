@@ -2,13 +2,14 @@ import { readFileSync, writeFileSync, existsSync, statSync } from 'fs';
 import { spawn, execSync } from 'child_process';
 import semver from 'semver';
 import axios from 'axios';
-import chalkAnimation from 'chalk-animation';
+
 import { } from 'dotenv/config';
 import logger from './core/var/modules/logger.js';
 import loadPlugins from './core/var/modules/installDep.js';
+
 import environments from './core/var/modules/environments.get.js';
+
 const { isGlitch, isReplit, isGitHub } = environments;
-const rainbowText = `` ;
 
 console.clear();
 
@@ -63,9 +64,7 @@ function upNodeReplit() {
 
 // CHECK UPDATE
 async function checkUpdate() {
-
     logger.custom("Checking for updates...", "UPDATE");
-
     try {
         const res = await axios.get('https://raw.githubusercontent.com/XaviaTeam/XaviaBot/main/package.json');
 
@@ -118,6 +117,5 @@ function handleRestartCount() {
     }, _1_MINUTE);
 }
 
-const rainbowAnimation = chalkAnimation.rainbow(rainbowText);
-rainbowAnimation.start();
 main();
+
